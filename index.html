@@ -3,18 +3,20 @@
 <head>
   
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-    <script type="text/javascript" src="js/funciones.js"></script>  
+    <script type="text/javascript" src="js/misOtrasFunciones.js"></script>  
     <title>Reto3</title>
     <style>
         table, th, td {
           border: 3px solid blueviolet;
+          background-color:antiquewhite;
           border-collapse: collapse;
         }
     </style>
 </head>
 <body>
-    <h1>HOTEL pruebas reservas</h1>
-    <h2> CATEGORIES</h2>
+ 
+    <h1 align="center"><strong>H O T E L</strong> </h1>
+    <h2 style="background-color: rgb(168, 162, 162); border-collapse: collapse"> CATEGORIES</h2>
     
     <div id="resultado1"></div>
     <script type="text/javascript">
@@ -30,7 +32,7 @@
     <button onclick="traerInformacionCategorias()" > Consultar Categorias</button>
      
 
-    <h2> ROOMS</h2>
+    <h2 style="background-color: rgb(168, 162, 162); border-collapse: collapse"> ROOMS</h2>
     
     <div id="resultado2"></div>
     <script type="text/javascript">
@@ -50,7 +52,7 @@
 
 
 
-    <h2> CLIENTS</h2>
+    <h2 style="background-color: rgb(168, 162, 162); border-collapse: collapse"> CLIENTS</h2>
         <div id="resultado3"></div>
         <script type="text/javascript">
          window.onload=autoInicioCliente();
@@ -64,7 +66,7 @@
     </div>
     <button onclick="guardarInformacionClientes()">Guardar Clientes</button>
 
-    <h2> MESSAGES</h2>
+    <h2 style="background-color: rgb(168, 162, 162); border-collapse: collapse"> MESSAGES</h2>
     <div id="resultado4"></div>
     <script type="text/javascript">
     window.onload=autoInicioMensaje();
@@ -76,16 +78,16 @@
     </div>
     <button onclick="guardarInformacionMensajes()">Guardar Mensajes</button>
 
-    <h2> RESERVATIONS</h2>
+    <h2 style="background-color: rgb(168, 162, 162); border-collapse: collapse"> RESERVATIONS</h2>
     <div id="resultado5"></div>
     <script type="text/javascript">
         window.onload=autoInicioReservas();
         </script>
     <button onclick="traerInformacionReservas()" > Consultar Reservas</button>
         <div>
-        <input type="date" id="startDate" placeholder="startDate">
-        <input type="date" id="devolutionDate" placeholder="devolutionDate">
-        <input type="text" id="status" placeholder="created">
+        <input type="date" id="RstartDate" placeholder="startDate">
+        <input type="date" id="RdevolutionDate" placeholder="devolutionDate">
+        <input type="text" id="Rstatus" placeholder="created">
     </div>
     <button onclick="guardarInformacionReservas()">Guardar Reservas</button>
 </body>
