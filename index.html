@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html >
+<head>
+  
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script type="text/javascript" src="js/misFunciones.js"></script>  
+    <title>Reto3</title>
+    <style>
+        table, th, td {
+          border: 3px solid blueviolet;
+          border-collapse: collapse;
+        }
+    </style>
+</head>
+<body>
+    <h1>HOTEL</h1>
+    <h2> CATEGORIES</h2>
+    
+    <div id="resultado1"></div>
+    <script type="text/javascript">
+    window.onload=autoInicioCategory();
+    </script>
+
+    <div>
+        <input type="text" id="Cname" placeholder="name">
+        <input type="text" id="Cdescription" placeholder="description">
+    </div>
+
+    <button onclick="guardarInformacionCategorias()">Guardar Categorias</button>
+    <button onclick="traerInformacionCategorias()" > Consultar Categorias</button>
+     
+
+    <h2> ROOMS</h2>
+    
+    <div id="resultado2"></div>
+    <script type="text/javascript">
+    window.onload=autoInicioRoom();
+    </script>
+    <button onclick="traerInformacionRooms()" > Consultar Rooms</button>
+    
+    <div>
+        <input type="text" id="Rname" placeholder="name">
+        <input type="number" id="Rstars" placeholder="stars">
+        <input type="text" id="Rhotel" placeholder="hotel">
+        <input type="text" id="Rdescription" placeholder="description"> 
+        <select id="select-category"> </select>
+        
+    </div>
+    <button onclick="guardarInformacionRooms()">Guardar Rooms</button>
+
+
+
+    <h2> CLIENTS</h2>
+        <div id="resultado3"></div>
+        <script type="text/javascript">
+         window.onload=autoInicioClient();
+        </script>
+    <button onclick="traerInformacionClientes()" > Consultar Clientes</button>
+        <div>
+        <input type="email" id="Clemail" placeholder="email">
+        <input type="text" id="ClLpassword" placeholder="password">
+        <input type="text" id="Clname" placeholder="name">
+        <input type="number" id="Clage" placeholder="age">  
+    </div>
+    <button onclick="guardarInformacionClientes()">Guardar Clientes</button>
+
+    <h2> MESSAGES</h2>
+    <div id="resultado4"></div>
+    <script type="text/javascript">
+    window.onload=autoInicioMensaje();
+    </script>
+    <button onclick="traerInformacionMensajes()" > Consultar Mensajes</button>
+    <div>
+        <input type="text" id="MmessageText" placeholder="messageText"> 
+
+    </div>
+    <button onclick="guardarInformacionMensajes()">Guardar Mensajes</button>
+
+    <h2> RESERVATIONS</h2>
+    <div id="resultado5"></div>
+    <button onclick="traerInformacionReservas()" > Consultar Reservas</button>
+        <div>
+        <input type="date" id="startDate" placeholder="startDate">
+        <input type="date" id="devolutionDate" placeholder="devolutionDate">
+        <input type="text" id="status" placeholder="created">
+    </div>
+    <button onclick="guardarInformacionReservas()">Guardar Reservas</button>
+</body>
+</html>
