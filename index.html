@@ -3,7 +3,7 @@
 <head>
   
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-    <script type="text/javascript" src="js/misFunciones.js"></script>  
+    <script type="text/javascript" src="js/funciones.js"></script>  
     <title>Reto3</title>
     <style>
         table, th, td {
@@ -13,12 +13,12 @@
     </style>
 </head>
 <body>
-    <h1>HOTEL</h1>
+    <h1>HOTEL pruebas reservas</h1>
     <h2> CATEGORIES</h2>
     
     <div id="resultado1"></div>
     <script type="text/javascript">
-    window.onload=autoInicioCategory();
+    window.onload=autoInicioCategoria();
     </script>
 
     <div>
@@ -53,12 +53,12 @@
     <h2> CLIENTS</h2>
         <div id="resultado3"></div>
         <script type="text/javascript">
-         window.onload=autoInicioClient();
+         window.onload=autoInicioCliente();
         </script>
     <button onclick="traerInformacionClientes()" > Consultar Clientes</button>
         <div>
-        <input type="email" id="Clemail" placeholder="email">
-        <input type="text" id="ClLpassword" placeholder="password">
+        <input type="text" id="Clemail" placeholder="email">
+        <input type="text" id="Clpassword" placeholder="password">
         <input type="text" id="Clname" placeholder="name">
         <input type="number" id="Clage" placeholder="age">  
     </div>
@@ -78,6 +78,9 @@
 
     <h2> RESERVATIONS</h2>
     <div id="resultado5"></div>
+    <script type="text/javascript">
+        window.onload=autoInicioReservas();
+        </script>
     <button onclick="traerInformacionReservas()" > Consultar Reservas</button>
         <div>
         <input type="date" id="startDate" placeholder="startDate">

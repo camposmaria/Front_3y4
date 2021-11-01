@@ -1,8 +1,7 @@
-///////////////////Categorias//////////////////////////////////////
 function autoInicioCategoria(){
     console.log("se esta ejecutando")
     $.ajax({
-        url:"http://localhost:8080/api/Category/all",
+        url:"http://129.151.117.213:8080/api/Category/all",
         type:"GET",
         datatype:"JSON",
         success:function(respuesta){
@@ -20,7 +19,7 @@ function autoInicioCategoria(){
 }
 function traerInformacionCategorias(){
     $.ajax({
-        url:"http://localhost:8080/api/Category/all",
+        url:"http://129.151.117.213:8080/api/Category/all",
         type:"GET",
         datatype:"JSON",
         success:function(respuesta){
@@ -56,7 +55,7 @@ function guardarInformacionCategorias(){
         dataType: 'JSON',
         data: JSON.stringify(var2),
         
-        url:"http://localhost:8080/api/Category/save",
+        url:"http://129.151.117.213:8080/api/Category/save",
        
         success:function(response) {
                 console.log(response);
@@ -83,7 +82,7 @@ function actualizarInformacionCategorias(idElemento){
     console.log(myData);
     let dataToSend=JSON.stringify(myData);
     $.ajax({
-        url:"http://localhost:8080/api/Category/update",
+        url:"http://129.151.117.213:8080/api/Category/update",
         type:"PUT",
         data:dataToSend,
         contentType:"application/JSON",
@@ -106,7 +105,7 @@ function borrarCategoria(idElemento){
     };
     let dataToSend=JSON.stringify(myData);
     $.ajax({
-        url:"http://localhost:8080/api/Category/"+idElemento,
+        url:"http://129.151.117.213:8080/api/Category/"+idElemento,
         type:"DELETE",
         data:dataToSend,
         contentType:"application/JSON",
@@ -120,11 +119,12 @@ function borrarCategoria(idElemento){
 
 }
 
+
 ///////////////////Rooms//////////////////////////////////////
 function autoInicioRoom(){
     console.log("se esta ejecutando")
     $.ajax({
-        url:"http://localhost:8080/api/Room/all",
+        url:"http://129.151.117.213:8080/api/Room/all",
         type:"GET",
         datatype:"JSON",
         success:function(respuesta){
@@ -142,7 +142,7 @@ function autoInicioRoom(){
 }
 function traerInformacionRooms(){
     $.ajax({
-        url:"http://localhost:8080/api/Room/all",
+        url:"http://129.151.117.213:8080/api/Room/all",
         type:"GET",
         datatype:"JSON",
         success:function(respuesta){
@@ -185,7 +185,7 @@ function guardarInformacionRooms(){
         dataType: 'JSON',
         data: JSON.stringify(var3),
         
-        url:"http://localhost:8080/api/Room/save",
+        url:"http://129.151.117.213:8080/api/Room/save",
        
         
         success:function(response) {
@@ -203,7 +203,7 @@ function guardarInformacionRooms(){
 
 }
 
-function actualizarInformacionRoom(idElemento){
+function actualizarInformacionRooms(idElemento){
     let myData={
         id:idElemento,
         name:$("#Rname").val(),
@@ -216,7 +216,7 @@ function actualizarInformacionRoom(idElemento){
     console.log(myData);
     let dataToSend=JSON.stringify(myData);
     $.ajax({
-        url:"http://localhost:8080/api/Category/update",
+        url:"http://129.151.117.213:8080/api/Room/update",
         type:"PUT",
         data:dataToSend,
         contentType:"application/JSON",
@@ -242,7 +242,7 @@ function borrarRooms(idElemento){
     };
     let dataToSend=JSON.stringify(myData);
     $.ajax({
-        url:"http://localhost:8080/api/Room/"+idElemento,
+        url:"http://129.151.117.213:8080/api/Room/"+idElemento,
         type:"DELETE",
         data:dataToSend,
         contentType:"application/JSON",
@@ -261,24 +261,20 @@ function borrarRooms(idElemento){
 function autoInicioCliente(){
     console.log("se esta ejecutando")
     $.ajax({
-        url:"http://localhost:8080/api/Client/all",
+        url:"http://129.151.117.213:8080/api/Client/all",
         type:"GET",
         datatype:"JSON",
         success:function(respuesta){
             console.log(respuesta);
             pintarRespuestaClientes(respuesta);
-            let $select = $("#select-client");
-            $.each(respuesta, function (id, name) {
-                $select.append('<option value='+name.id+'>'+name.name+'</option>');
-                console.log("select "+name.id);
-            }); 
+            
         }
     
     })
 }
 function traerInformacionClientes(){
     $.ajax({
-        url:"http://localhost:8080/api/Client/all",
+        url:"http://129.151.117.213:8080/api/Client/all",
         type:"GET",
         datatype:"JSON",
         success:function(respuesta){
@@ -297,8 +293,8 @@ function pintarRespuestaClientes(respuesta){
         myTable+="<td>"+respuesta[i].password+"</td>";
         myTable+="<td>"+respuesta[i].name+"</td>";
         myTable+="<td>"+respuesta[i].age+"</td>";
-        myTable+="<td> <button onclick=' actualizarInformacionClientes("+respuesta[i].idClient+")'>Actualizar</button>";
-        myTable+="<td> <button onclick='borrarClientes("+respuesta[i].id+")'>Borrar</button>";
+        myTable+="<td> <button onclick='actualizarInformacionClientes("+respuesta[i].idClient+")'>Actualizar</button>";
+        myTable+="<td> <button onclick='borrarClientes("+respuesta[i].idClient+")'>Borrar</button>";
         myTable+="</tr>";
     }
     myTable+="</table>";
@@ -307,10 +303,10 @@ function pintarRespuestaClientes(respuesta){
 
 function guardarInformacionClientes(){
     let var4 = {
-        email:$("#CLemail").val(),
-        password:$("#CLpassword").val(),
-        name:$("#CLname").val(),
-        age:$("#CLage").val(),
+        email:$("#Clemail").val(),
+        password:$("#Clpassword").val(),
+        name:$("#Clname").val(),
+        age:$("#Clage").val(),
         };
         console.log(var4);
         $.ajax({
@@ -319,7 +315,7 @@ function guardarInformacionClientes(){
         dataType: 'JSON',
         data: JSON.stringify(var4),
         
-        url:"http://localhost:8080/api/Client/save",
+        url:"http://129.151.117.213:8080/api/Client/save",
                
         success:function(response) {
                 console.log(response);
@@ -340,17 +336,17 @@ function guardarInformacionClientes(){
 function actualizarInformacionClientes(idElemento){
     let myData={
         idClient:idElemento,
-        email:$("#CLemail").val(),
-        password:$("#CLpassword").val(),
-        name:$("#CLname").val(),
-        age:$("#CLage").val(),
-        
-        
+        email:$("#Clemail").val(),
+        password:$("#Clpassword").val(),
+        name:$("#Clname").val(),
+        age:$("#Clage").val(),
+
+
     };
     console.log(myData);
     let dataToSend=JSON.stringify(myData);
     $.ajax({
-        url:"http://localhost:8080/api/Client/update",
+        url:"http://129.151.117.213:8080/api/Client/update",
         type:"PUT",
         data:dataToSend,
         contentType:"application/JSON",
@@ -358,12 +354,12 @@ function actualizarInformacionClientes(idElemento){
         success:function(respuesta){
             $("#resultado").empty();
             $("#idClient").val("");
-            $("#CLemail").val("");
-            $("#CLpas word").val("");
-            $("#CLname").val("");
-            $("#CLage").val("");
+            $("#Clemail").val("");
+            $("#Clpassword").val("");
+            $("#Clname").val("");
+            $("#Clage").val("");
             autoInicioCliente();
-            alert("se ha Actualizado correctamente el cliente")
+            alert("se ha Actualizado correctamente Cliente")
         }
     });
 
@@ -375,7 +371,7 @@ function borrarClientes(idElemento){
     };
     let dataToSend=JSON.stringify(myData);
     $.ajax({
-        url:"http://localhost:8080/api/Client/"+idElemento,
+        url:"http://129.151.117.213:8080/api/Client/"+idElemento,
         type:"DELETE",
         data:dataToSend,
         contentType:"application/JSON",
@@ -383,21 +379,23 @@ function borrarClientes(idElemento){
         success:function(respuesta){
             $("#resultado").empty();
             autoInicioCliente();
-            alert("Se ha Eliminado el cliente.")
+            alert("Se ha Eliminado.")
         }
     });
 
-}
 
+}
 //////////////////////Mensajes/////////////////////////////////
 function autoInicioMensaje(){
     console.log("se esta ejecutando")
     $.ajax({
-        url:"http://localhost:8080/api/Message/all",
+        url:"http://129.151.117.213:8080/api/Message/all",
         type:"GET",
         datatype:"JSON",
         success:function(respuesta){
             console.log(respuesta);
+            pintarRespuestaMensajes(respuesta);
+            
         }
     
     })
@@ -405,7 +403,7 @@ function autoInicioMensaje(){
 }
 function traerInformacionMensajes(){
     $.ajax({
-        url:"http://localhost:8080/api/Message/all",
+        url:"http://129.151.117.213:8080/api/Message/all",
         type:"GET",
         datatype:"JSON",
         success:function(respuesta){
@@ -421,10 +419,10 @@ function pintarRespuestaMensajes(respuesta){
     for(i=0;i<respuesta.length;i++){
         myTable+="<tr>";
         myTable+="<td>"+respuesta[i].messageText+"</td>";
-        myTable+="<td>"+respuesta[i].room.name+"</td>";
-        myTable+="<td>"+respuesta[i].client.name+"</td>";
-        myTable+="<td> <button onclick=' actualizarInformacionRooms("+respuesta[i].id+")'>Actualizar</button>";
-        myTable+="<td> <button onclick='borrarRooms("+respuesta[i].id+")'>Borrar</button>";
+        /*myTable+="<td>"+respuesta[i].room.name+"</td>";
+        myTable+="<td>"+respuesta[i].client.name+"</td>";*/
+        myTable+="<td> <button onclick=' actualizarInformacionMensajes("+respuesta[i].idMessage+"</button>)'>Actualizar</button>";
+        myTable+="<td> <button onclick='borrarMensajes("+respuesta[i].idMessage+")'>Borrar</button>";
         }
     myTable+="</table>";
     $("#resultado4").html(myTable);
@@ -433,17 +431,15 @@ function pintarRespuestaMensajes(respuesta){
 function guardarInformacionMensajes(){
     let var5 = {
         messageText:$("#MmessageText").val(),
-        room: {id:+$("#select-room").val()},
-        client: {id:+$("#select-client").val()},
-                };
-      
+                       };
+        console.log(var5);
         $.ajax({
         type:'POST',
         contentType: "application/json; charset=utf-8",
         dataType: 'JSON',
         data: JSON.stringify(var5),
         
-        url:"http://localhost:8080/api/Message/save",
+        url:"http://129.151.117.213:8080/api/Message/save",
        
         success:function(response) {
                 console.log(response);
@@ -462,26 +458,22 @@ function guardarInformacionMensajes(){
 
 function actualizarInformacionMensajes(idElemento){
     let myData={
-        id:idElemento,
+        idMessage:idElemento,
         messageText:$("#MmessageText").val(),
-        room: {id:+$("#select-room").val()},
-        client: {id:+$("#select-client").val()},
-       
+               
     };
     console.log(myData);
     let dataToSend=JSON.stringify(myData);
     $.ajax({
-        url:"http://localhost:8080/api/Message/update",
+        url:"http://129.151.117.213:8080/api/Message/update",
         type:"PUT",
         data:dataToSend,
         contentType:"application/JSON",
         datatype:"JSON",
         success:function(respuesta){
             $("#resultado").empty();
-            $("#id").val("");
+            $("#idMessage").val("");
             $("#MmessageText").val("");
-            $("#select-room").val("");
-            $("#select-client").val("");
             autoInicioMensaje();
             alert("se ha Actualizado correctamente el mensaje")
         }
@@ -491,11 +483,11 @@ function actualizarInformacionMensajes(idElemento){
 
 function borrarMensajes(idElemento){
     let myData={
-        id:idElemento
+        idMessage:idElemento
     };
     let dataToSend=JSON.stringify(myData);
     $.ajax({
-        url:"http://localhost:8080/api/Room/"+idElemento,
+        url:"http://129.151.117.213:8080/api/Message/"+idElemento,
         type:"DELETE",
         data:dataToSend,
         contentType:"application/JSON",
@@ -508,31 +500,27 @@ function borrarMensajes(idElemento){
     });
 
 }
+
 //////////////////////Reservas/////////////////////////////////
-function autoInicioReservas(){
+/*function autoInicioReservas(){
     console.log("se esta ejecutando")
     $.ajax({
-        url:"http://localhost:8080/api/Reservation/all",
+        url:"http://129.151.117.213:8080/api/Reservation/all",
         type:"GET",
         datatype:"JSON",
         success:function(respuesta){
             console.log(respuesta);
             pintarRespuestaReservas(respuesta);
-            let $select = $("#select-room");
-            $.each(respuesta, function (id, name) {
-                $select.append('<option value='+name.id+'>'+name.name+'</option>');
-                console.log("select "+name.id);
-            }); 
+         
         }
     
     })
 
 }
 
-
 function traerInformacionReservas(){
     $.ajax({
-        url:"http://localhost:8080/api/Reservation/all",
+        url:"http://129.151.117.213:8080/api/Reservation/all",
         type:"GET",
         datatype:"JSON",
         success:function(respuesta){
@@ -574,7 +562,7 @@ function guardarInformacionReservas(){
         dataType: 'JSON',
         data: JSON.stringify(var6),
         
-        url:"http://localhost:8080/api/Reservation/save",       
+        url:"http://129.151.117.213:8080/api/Reservation/save",       
         
         success:function(response) {
                 console.log(response);
@@ -603,7 +591,7 @@ function actualizarInformacionReservas(idElemento)
         console.log(myData);
     let dataToSend=JSON.stringify(myData);
     $.ajax({
-        url:"http://localhost:8080/api/Reservation/update",
+        url:"http://129.151.117.213:8080/api/Reservation/update",
         type:"PUT",
         data:dataToSend,
         contentType:"application/JSON",
@@ -626,7 +614,7 @@ function actualizarInformacionReservas(idElemento)
         };
         let dataToSend=JSON.stringify(myData);
         $.ajax({
-            url:"http://localhost:8080/api/Reservation/"+idElemento,
+            url:"http://129.151.117.213:8080/api/Reservation/"+idElemento,
             type:"DELETE",
             data:dataToSend,
             contentType:"application/JSON",
@@ -640,6 +628,7 @@ function actualizarInformacionReservas(idElemento)
     
     }   
 
-
-
 }
+
+
+*/
